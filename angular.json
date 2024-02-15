@@ -34,12 +34,12 @@
                 "src/app/skeleton-loader/skeleton-loader.component.scss"
               ]
             },
-            "baseHref": "/fyle-frontend-challenge/"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
               "outputPath": "dist/fyle-frontend-challenge",
-              "baseHref": "/fyle-frontend-challenge/",
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
