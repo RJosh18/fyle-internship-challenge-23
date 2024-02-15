@@ -1,8 +1,5 @@
-
-
-
 // import 'core-js/stable';
-//  import 'zone.js/dist/zone';
+import 'zone.js/dist/zone';
 
 // import 'core-js/es6/array';
 // import 'core-js/es6/date';
@@ -18,8 +15,4 @@
 // import 'core-js/es6/symbol';
 // import 'core-js/es6/number';
 
-
 // import 'core-js/es7/reflect';
-
-
-
