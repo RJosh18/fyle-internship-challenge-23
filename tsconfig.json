@@ -11,7 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "types": ["node"],
+    "types": ["node", "jasmine"],
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
