@@ -49,8 +49,7 @@ export class RepositoryListComponent {
     console.log('Repository clicked:', clickedRepository);
   }
   calculateTotalPages() {
-    console.log('total pages:', this.totalPages);
-    console.log('repository length:', this.userInfo.public_repos);
+    console.log(' total public repos:', this.userInfo.public_repos);
     this.totalPages = Math.ceil(
       this.userInfo.public_repos / this.totalReposPerPage
     );

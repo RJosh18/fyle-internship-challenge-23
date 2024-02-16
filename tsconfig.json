@@ -11,6 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "types": ["node"],
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
@@ -19,7 +20,8 @@
     "target": "ES2018",
     "useDefineForClassFields": false,
     "lib": ["es2018", "dom", "esnext.asynciterable", "scripthost", "es2015"],
-    "module": "esnext"
+    "module": "esnext",
+    "plugins": [{ "name": "tsconfig-paths" }]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
