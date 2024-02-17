@@ -35,7 +35,7 @@ export class ApiService {
     const cachedData = this.cacheService.get(cacheKey);
 
     const url = `https://api.github.com/users/${githubUsername}/repos?per_page=${limit}&page=${offset}`;
-    console.log('herer', url);
+
     return this.httpClient.get<any[]>(url).pipe(
       map((data) => {
         console.log({ data });

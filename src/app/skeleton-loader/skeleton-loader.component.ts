@@ -6,4 +6,9 @@ import { Component, Input } from '@angular/core';
 })
 export class SkeletonLoaderComponent {
   @Input() isLoading: boolean = false;
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  }
 }
