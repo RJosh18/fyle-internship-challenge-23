@@ -7,7 +7,7 @@ describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [HttpClientTestingModule, , RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
     })
   );
 

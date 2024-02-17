@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { SearchBarComponent } from './search-bar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -8,7 +10,7 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, HttpClientModule, RouterTestingModule],
       declarations: [SearchBarComponent],
     }).compileComponents();
 
@@ -17,7 +19,7 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -22,23 +22,20 @@ describe('RepositoryItemComponent', () => {
   });
 
   it('should emit repositoryClicked event when clicked', async () => {
-    const repository = {
-      name: 'Test Repo',
-      description: 'This is a test repository.',
-      topics: ['Angular', 'Testing'],
-    };
-    let emittedRepository: any;
+    let emittedRepository: any | undefined;
 
     component.repositoryClicked.subscribe((repo) => {
       emittedRepository = repo;
     });
 
+    fixture.detectChanges();
+
     component.onRepositoryClick();
 
-    await fixture.whenStable(); // wait for asynchronous operations
+    await fixture.whenStable();
 
     console.log('Emitted Repository:', emittedRepository);
-    expect(emittedRepository).toEqual(repository);
+    expect(emittedRepository).toEqual(component.repository);
   });
 
   it('should render repository details correctly', () => {
