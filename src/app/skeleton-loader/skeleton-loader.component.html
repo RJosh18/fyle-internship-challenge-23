@@ -1,7 +1,9 @@
 <app-skeleton-loader [isLoading]="isLoading">
-    <div class="skeleton" *ngIf="!isLoading">
-      <h3>{{ repository.name }}</h3>
-      <p>{{ repository.description }}</p>
-    </div>
-  </app-skeleton-loader>
-  
+  <div
+    class="h-20 w-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-repeat-x animation-shimmer mb-10"
+    *ngIf="!isLoading"
+  >
+    <h3 lass="text-gray-700 text-xl font-bold mb-2">{{ repository.name }}</h3>
+    <p class="text-gray-500">{{ repository.description }}</p>
+  </div>
+</app-skeleton-loader>

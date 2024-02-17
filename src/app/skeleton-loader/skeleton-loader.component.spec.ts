@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import './skeleton-loader.component.scss';
 import { SkeletonLoaderComponent } from './skeleton-loader.component';
 
 describe('SkeletonLoaderComponent', () => {
@@ -8,7 +7,7 @@ describe('SkeletonLoaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SkeletonLoaderComponent]
+      declarations: [SkeletonLoaderComponent],
     });
     fixture = TestBed.createComponent(SkeletonLoaderComponent);
     component = fixture.componentInstance;

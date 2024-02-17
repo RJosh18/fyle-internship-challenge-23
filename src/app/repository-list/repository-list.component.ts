@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-repository-list',
   templateUrl: './repository-list.component.html',
-  styleUrls: ['./repository-list.component.scss'],
 })
 export class RepositoryListComponent {
   repositories: any = {};

@@ -5,7 +5,6 @@ import { GithubService } from '../github.service';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent {
   @Output() searchEvent = new EventEmitter<string>();
