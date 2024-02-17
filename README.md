@@ -1,43 +1,91 @@
-# Fyle Frontend Challenge
+Project Description: Enter valid github username and it will display all the public repos.
 
-## Who is this for?
+-Install dependencies
+npm install
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. The candidate should be able to commit to at least 6 months of dedicated time for internship.
+-To run test
+ng test
 
-## Why work at Fyle?
+-Unit test case:
+1.Tests performed on RepositoryItem using file repository-item.component.spec.ts:
+Input: it('should emit repositoryClicked event when clicked', async () => {
+      let emittedRepository: any | undefined;
 
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
+    component.repositoryClicked.subscribe((repo) => {
+      emittedRepository = repo;
+    });
 
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
+    fixture.detectChanges();
 
-## Challenge outline
+    component.onRepositoryClick();
 
-This challenge involves implementing application using github api. 
+    await fixture.whenStable();
 
-The services that you need to use are already implemented - check out ApiService.
+    console.log('Emitted Repository:', emittedRepository);
+    expect(emittedRepository).toEqual(component.repository);
+  });
 
-You can see details of this challenge [here](https://fyleuniverse.notion.site/fyleuniverse/Fyle-Frontend-development-challenge-cb5085e5e0864e769e7b98c694400aaa)
+  it('should render repository details correctly', () => {
+    const repository = {
+      name: 'Test Repository',
+      description: 'This is a test repo.',
+      topics: ['Angular', 'Testing'],
+    };
 
-__Note__ - This challenge is in angular. We work on angular frameworks & after you join we expect the same from you. Hence it is required to complete this assignement in angular itself.
+    component.repository = repository;
 
-## What happens next?
+    fixture.detectChanges();
 
-You will hear back within 48 hours from us via email.
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h3').textContent).toContain(
+      'Test Repository'
+    );
+    expect(compiled.querySelector('p').textContent).toContain(
+      'This is a test repo.'
+    );
+    expect(compiled.querySelectorAll('.bg-blue-500').length).toBe(2);
+  });
+ output:RepositoryItemComponent
+   should render repository details correctly
+   should emit repositoryClicked event when clicked
+   should create
+   
+2.Tests performed on GitHubServices using file github-service.spec.ts:
 
-## Installation
+Input:it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
 
-1. Fork this repository to your github account.
-2. Clone the forked repository and proceed with steps mentioned below.
+  it('should get user info', () => {
+    const username = 'testuser';
+    const dummyUser = { login: 'testuser', name: 'Test User' };
+    service.getUserInfo(username).subscribe((user: any) => {
+      expect(user).toEqual(dummyUser);
+    });
 
-### Install requirements
-* Install angular cli [Ref](https://angular.io/cli)
-* `npm install` in this repository 
+    const req = httpMock.expectOne(`${service['baseUrl']}/users/${username}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyUser);
+  });
+  it('should get user repositories', () => {
+    const username = 'testuser';
+    const dummyRepos = [{ name: 'repo1' }, { name: 'repo2' }];
 
-## Development server
+    service.getUserRepositories(username).subscribe((repos: any) => {
+      expect(repos).toEqual(dummyRepos);
+    });
+    const req = httpMock.expectOne(
+      `${service['baseUrl']}/users/${username}/repos`
+    );
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyRepos);
+  });
+});
+Output:GithubService
+should get user info
+should be created
 
-Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+should get user repositories
 
-## Further help
+<img width="751" alt="image" src="https://github.com/RJosh18/fyle-internship-challenge-23/assets/103954871/fdcf5143-bcd6-4438-af02-afdd08397ebd">
 
-Visit the [Angular Documentation](https://angular.io/guide/styleguide) to learn more.
-Styling is to be strictly done with [Tailwind](https://tailwindcss.com/docs/installation).
